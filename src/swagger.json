@@ -87,6 +87,17 @@
         "tags": ["User"],
         "summary": "List all users",
         "description": "List all users",
+        "parameters": [
+            {
+            "name": "user_id",
+            "in": "header",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            } 
+          }
+        ],
         "requestHeaders": {
           
         },
@@ -142,11 +153,22 @@
         }
       }
     },
-    "/users/:user_id": {
+    "/users/{user_id}": {
       "get": {
         "tags": ["User"],
-        "summary": "Get a user",
-        "description": "Get selected user data",
+        "summary": "Get selected user",
+        "description": "Get the specified user data",
+        "parameters": [
+            {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            } 
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success",
@@ -196,11 +218,22 @@
         }
       }
     },
-    "/users/:user_id/admin": {
+    "/users/{user_id}/admin": {
       "patch": {
         "tags": ["User"],
         "summary": "Turn admin",
-        "description": "Turn selected user to administrator",
+        "description": "Give the selected user administrator privileges",
+        "parameters": [
+          {
+          "name": "user_id",
+          "in": "path",
+          "description": "User ID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          } 
+        }
+      ],
         "responses": {
           "201": {
             "description": "Success",
